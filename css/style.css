@@ -138,7 +138,7 @@ header {
 
 .title-section {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 15px;
     flex-wrap: wrap;
 }
