@@ -1166,3 +1166,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// 微信二维码弹窗功能
+function showWechatQR() {
+    const modal = document.getElementById('wechat-qr-modal');
+    if (modal) {
+        modal.style.display = 'block';
+        // 添加点击背景关闭弹窗的功能
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                closeWechatQR();
+            }
+        };
+    }
+}
+
+function closeWechatQR() {
+    const modal = document.getElementById('wechat-qr-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
