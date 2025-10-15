@@ -1,0 +1,25 @@
+services:
+  compiler-backend:
+    build: .
+    container_name: cpp-python-compiler
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./temp:/app/temp
+    environment:
+      - NODE_ENV=production
+      - PORT=3002
+    restart: unless-stopped
+  
+  # 前端服务
+  frontend:
+    image: nginx:alpine
+    container_name: compiler-frontend
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./:/usr/share/nginx/html:ro
+    depends_on:
+      - compiler-backend
+    restart: unless-stopped
