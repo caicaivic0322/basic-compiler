@@ -1172,6 +1172,8 @@ function showWechatQR() {
     const modal = document.getElementById('wechat-qr-modal');
     if (modal) {
         modal.style.display = 'block';
+        // 检查二维码图片是否存在
+        checkQRImage();
         // 添加点击背景关闭弹窗的功能
         modal.onclick = function(event) {
             if (event.target === modal) {
@@ -1185,5 +1187,29 @@ function closeWechatQR() {
     const modal = document.getElementById('wechat-qr-modal');
     if (modal) {
         modal.style.display = 'none';
+    }
+}
+
+// 检查二维码图片是否存在
+function checkQRImage() {
+    const qrImage = document.getElementById('wechat-qr-image');
+    const qrPlaceholder = document.getElementById('qr-placeholder');
+    
+    if (qrImage && qrPlaceholder) {
+        // 创建一个新的Image对象来检查图片是否存在
+        const img = new Image();
+        img.onload = function() {
+            // 图片加载成功，显示图片，隐藏占位内容
+            qrImage.style.display = 'block';
+            qrPlaceholder.style.display = 'none';
+        };
+        img.onerror = function() {
+            // 图片加载失败，显示占位内容，隐藏图片
+            qrImage.style.display = 'none';
+            qrPlaceholder.style.display = 'block';
+        };
+        
+        // 尝试加载图片
+        img.src = qrImage.src;
     }
 }

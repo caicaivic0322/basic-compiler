@@ -121,10 +121,12 @@
             <h3>微信扫码添加</h3>
             <div class="qr-code-container">
                 <div class="qr-code">
-                    <!-- 这里放置你的微信二维码图片 -->
-                    <div class="qr-placeholder">
+                    <!-- 请将您的微信二维码图片上传到 images/wechat-qr.png -->
+                    <img src="images/wechat-qr.png" alt="微信二维码" id="wechat-qr-image" style="display:none; max-width:100%; max-height:100%;">
+                    <!-- 如果图片不存在，显示占位内容 -->
+                    <div class="qr-placeholder" id="qr-placeholder">
                         <p>微信: caiciavic</p>
-                        <p>请保存图片后使用微信扫描</p>
+                        <p>请将二维码图片上传到 images/wechat-qr.png</p>
                     </div>
                 </div>
             </div>
