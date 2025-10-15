@@ -15,6 +15,9 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 
+// 静态文件服务
+app.use(express.static(__dirname));
+
 // 请求日志中间件
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.path} - ${new Date().toISOString()}`);
